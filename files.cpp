@@ -7,7 +7,7 @@
 #define numarg 2
 
 	file::file(){}
-
+//this stuff here the argv stuff for user to input ./audio "directory" it checks if the directory can be opened then returns the true or false
 bool file::Argvck(int argc,char const* argv[])
 
 	{
@@ -40,7 +40,8 @@ bool file::Argvck(int argc,char const* argv[])
 	}
 
 
-
+//this on reads in all of the files in the directory we can change to read in the wav stuff
+	void Files::Readfilenames(char const* argv[]){
 void file::filenamereader(char const* argv[])
 
 	{
@@ -64,6 +65,7 @@ void file::filenamereader(char const* argv[])
 	}
 						std::cout<<std::endl;
 	}
+//this one opens the file
 
 bool file::fileopen(std::string filename)
 	
