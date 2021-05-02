@@ -29,3 +29,29 @@ int main() {
     std::cout << "Hello, World!" << std::endl;
     return 0;
 }
+
+
+/*#include "files.h"
+
+
+int main(int argc, char const *argv[]) {
+
+	bool check;
+	int choice;
+
+	Files F;
+
+	check=F.Argvcheck(argc,argv);
+
+	if(check){
+		
+		//ui stuff 
+			
+//what ever we make it as i made it for as an example while(choice>4);
+//check if file opens
+		F.Readfilenames(argv);
+		F.fileopen(ui.getfile());
+
+return 0;
+}
+
