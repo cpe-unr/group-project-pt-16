@@ -1,5 +1,10 @@
 /** @file */
 #include <iostream>
+#include "wav.h"
+#include "wavMono.h"
+#include "wavStereo.h"
+
+using namespace std;
 
 /**
  * \brief   The function bar.
@@ -26,7 +31,9 @@ void fn(){
 }
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    cout << "Hello, World!" << endl;
+
+	
     return 0;
 }
 
@@ -53,5 +60,5 @@ int main(int argc, char const *argv[]) {
 		F.fileopen(ui.getfile());
 
 return 0;
-}
+}*/
 
