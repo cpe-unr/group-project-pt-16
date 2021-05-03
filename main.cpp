@@ -32,8 +32,32 @@ void fn(){
 
 int main() {
     cout << "Hello, World!" << endl;
-
+	/*This is temporary, will fix later. Most of this probably should go to a separate .h/.cpp file maybe
+	int input;
+	Wav audio;
+	//Read files from argv[]
+	cout << "Do you want to modify the metadata for any of these files?" << endl;
+	cin >> input;
+	if (input==1){//Also displays a list of all file names
+		//Metadata editing
+	}
 	
+	cout << "Do you want to process a file?" << endl;
+	cin >> input;
+	//normalization, noise gating, and echo
+	cout << "Enter file name to save: " << endl;
+	string newName;
+	cin >> newName;
+	if (newName==argv[]){
+		cout << "Cannot save file with the same name!" << endl;
+	}
+	
+	cout << "Do you want to make a CSV file?" << endl;
+	cin >> input;
+	if (input==1){
+		//Generate CSV
+	}
+	*/
     return 0;
 }
 
