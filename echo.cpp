@@ -42,3 +42,62 @@ void Echo::processStereo(T* buffer, T wavSize) {
 	}
 }
 */
+
+
+
+
+
+/*#include "wavprocessor.h"
+#include "echo.h"
+
+	   Echo::Echo(){}
+	   Echo::Echo(int delay)
+	{		
+		this->delay = delay;
+
+	}
+
+	
+		void Echo::8bitprobuff(unsigned char* buffer, int buffsize){
+		
+		for(int i=0; i<buffsize; i++)
+	{
+		if( ( ( (buffer[i]+buffer[i-delay]) /2) > 255) )
+	{
+			buffer[i]=255;
+	}
+		else if( ( (buffer[i]+buffer[i-delay]) /2) < 0)
+	{
+			buffer[i]=0;
+	}
+		else
+	{
+			buffer[i]=(buffer[i]+buffer[i-delay])/2;
+	}
+	}
+	}
+
+			void Echo::16bitprobuff(int16_t* buffer,int buffsize)
+	{
+	
+				for(int i=0; i<buffsize; i++)
+	{
+				if( ( ( (buffer[i]+buffer[i-delay]) /2) > 65659) )
+	{
+					buffer[i]=65659;
+	}
+				else if( ( (buffer[i]+buffer[i-delay]) /2) < 0)
+	{
+					buffer[i]=0;
+	}
+				else
+	{
+					buffer[i]=(buffer[i]+buffer[i-delay])/2;
+	}
+	}
+
+	}
+
+
+
+*/

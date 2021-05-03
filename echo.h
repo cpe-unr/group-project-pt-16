@@ -20,3 +20,23 @@ public:
 };
 
 #endif
+
+/*#ifndef echo_h
+#define echo_h
+#include <string>
+#include <fstream>
+#include <iostream>
+class Echo : public Processor{
+protected:
+//attributes
+int delay;
+public:
+//constructor
+Echo();
+Echo(int delay);
+//buffer
+void 8bitprobuff(unsigned char* buffer, int buffsize);
+void 16bitprobuff(int16_t* buffer,int buffsize);	
+};
+#endif 
+*/
