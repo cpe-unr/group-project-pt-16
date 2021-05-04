@@ -3,33 +3,66 @@
 
 #include "processor.h"
 
-class NoiseGate : public Processor {
+template <typename T>
+class NoiseGate : public Processor<T> {
 	int wavDelay;
+	short alignment;
 public:
 	NoiseGate() {}
-	NoiseGate(int gateDelay) : wavDelay(gateDelay) {};
+	NoiseGate(int gateDelay, short s_align) : wavDelay(gateDelay), alignment(s_align) {};
 
-	void processBuffer(unsigned char* buffer, int bufferSize) override;
+	void monoprobuff(T* buffer, int size) override {
+		if(alignment == 1) {
+			for(int i=0; i<size; i++)
+			{
+				if( (buffer[i]>= 120) && (buffer[i]<=136) )
+				{
+					buffer[i] = 128;
+				}
+			}
+		}
+		else {
+			for(int i=0; i<buffsize; i++)
+			{
+				if( (buffer[i]>= -31465) && (buffer[i]<=31465) )
+				{
+					buffer[i] = 0;
+				}
+			}
+		}
+	}
+	void stereoprobuff(T* buffer1, T* buffer2, int size) override {
+		if(alignment == 2){
+			for(int i=0; i<size; i++)
+			{
+				if((buffer1[i]>= 120) && (buffer1[i] <136))
+				{
+					buffer1[i] = 128;
+				}
+				if(buffer2[i]>=120 && (buffer2[i] <=136))
+				{
+					buffer2[i] = 128;
+				}
+			}
+		}
+		else {
+			for(int i=0; i<size; i++)
+			{
+				if((buffer1[i]>= -31465) && (buffer1[i] <31465))
+				{
+					buffer1[i] = 0;
+				}
+				if(buffer2[i]>= -31465 && (buffer2[i] <=31465))
+				{
+					buffer2[i] = 0;
+				}
+			}
+		}
+	}
+		
+			
 
 	virtual ~NoiseGate() {}
 };
 
 #endif
-
-
-/*#ifndef noisegate_h
-#define noisegate_h
-#include <string>
-#include <fstream>
-#include <iostream>
-class noisegate : public Processor{
-public:
-	//constructor
-	noisegate();
-
-void 8bitprobuff(unsigned char* buffer, int buffsize);
-void 16bitprobuff(int16_t* buffer,int buffsize);
-	
-};
-#endif */
-

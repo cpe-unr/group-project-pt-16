@@ -1,17 +1,26 @@
 #ifndef ECHO_H
 #define ECHO_H
 
-
-class Echo : public Processor {
+template <typename T>
+class Echo : public Processor<T> {
 	int wavDelay;
-	int channels;
+	int alignment;
 public:
 	Echo() {}
-	//Need the num_channels data type to determine whether a wav file is mono or stereo - 1 = mono, 2 = stereo
-	Echo(int echoDelay, numChannels) : wavdelay(echoDelay), channels(numChannels) {}
+	
+	Echo(int echoDelay, s_align) : wavdelay(echoDelay), alignment(s_align) {}
 
-	void processBuffer(unsigned char* buffer, int wavSize);
-	void processBuffer(short* buffer, int wavSize);
+	void monoprobuff(T* buffer, int wavSize) override {
+		for(int i = wavDelay; i < wavSize; i++) {
+			buffer[i] = (buffer[i]*0.5 + buffer[i - wavDelay]*0.5);
+		}
+
+	void stereoprobuff(T* buffer1, T* buffer2, int wavSize) override {
+		for(int i = wavDelau; i < wavSize; i++) {
+			buffer1[i] = (buffer1[i]*0.5 + buffer1[i-wavDelay]*0.5);
+			buffer2[i] = (buffer2[i]*0.5 + nuffer2[i-wavDelay]*0.5);
+		}
+	}
 
 	virtual ~Echo() {}
 
@@ -21,22 +30,3 @@ public:
 
 #endif
 
-/*#ifndef echo_h
-#define echo_h
-#include <string>
-#include <fstream>
-#include <iostream>
-class Echo : public Processor{
-protected:
-//attributes
-int delay;
-public:
-//constructor
-Echo();
-Echo(int delay);
-//buffer
-void 8bitprobuff(unsigned char* buffer, int buffsize);
-void 16bitprobuff(int16_t* buffer,int buffsize);	
-};
-#endif 
-*/
