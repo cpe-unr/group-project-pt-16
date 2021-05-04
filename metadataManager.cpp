@@ -1,7 +1,9 @@
 #include "metadataManager.h"
 #include <iostream>
 
-//prints out metadata header info
+/**
+ * prints out metadata header info
+*/
 void MetadataManager::display() {
 	for(Metadata& m : m_chunks) {
 		std::cout << "---------------------------" << std::endl;
@@ -12,7 +14,9 @@ void MetadataManager::display() {
 	}
 }
 	
-//returns metadata vector size		
+/**
+ * returns metadata vector size
+*/		
 int MetadataManager::getVectorSize() const {
 	return m_chunks.size();
 }
