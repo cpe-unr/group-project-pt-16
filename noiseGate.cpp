@@ -1,1 +1,1 @@
-#include "NoiseGate.h"
+#include "noiseGate.h"

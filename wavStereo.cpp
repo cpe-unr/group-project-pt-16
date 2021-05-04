@@ -1,5 +1,5 @@
 #include "wavStereo.h"
 
-std::vector<std::string> Stereo::getStereoFiles() {
-	return stereoFiles;
+std::vector<wav_header> Stereo::getStereoObjs() {
+	return stereoObjs;
 }

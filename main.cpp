@@ -30,11 +30,11 @@ void fn(){
 
 }
 
-int main() {
+int main(int argc, char * argv[]) {
     cout << "Hello, World!" << endl;
 	/*This is temporary, will fix later. Most of this probably should go to a separate .h/.cpp file maybe
 	int input;
-	Wav audio;
+	Wav audio();
 	//Read files from argv[]
 	cout << "Do you want to modify the metadata for any of these files?" << endl;
 	cin >> input;
@@ -48,7 +48,7 @@ int main() {
 	cout << "Enter file name to save: " << endl;
 	string newName;
 	cin >> newName;
-	if (newName==argv[]){
+	if (newName==argv[1]){
 		cout << "Cannot save file with the same name!" << endl;
 	}
 	
@@ -56,8 +56,8 @@ int main() {
 	cin >> input;
 	if (input==1){
 		//Generate CSV
-	}
-	*/
+	}*/
+	
     return 0;
 }
 

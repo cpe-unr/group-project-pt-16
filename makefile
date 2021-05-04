@@ -1,5 +1,5 @@
-audioprocessor: main.cpp wav.a echo.o noiseGate.o wavMono.o wavStereo.o
-	g++ -std=c++11 -o audioprocessor main.cpp wav.a echo.o noiseGate.o wavMono.o wavStereo.o
+audioprocessor: main.cpp wav.a echo.o noiseGate.o wavMono.o wavStereo.o processor.h
+	g++ -std=c++11 -o audioprocessor main.cpp wav.a echo.o noiseGate.o wavMono.o wavStereo.o 
 
 wav.a: wav.o metadataManager.o metadata.o
 	ar suvr wav.a wav.o metadataManager.o metadata.o

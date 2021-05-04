@@ -1,7 +1,7 @@
 #ifndef PROCESSOR_H
 #define PROCESSOR_H
 
-Template <typename T>
+template <typename T>
 class Processor {
 public:
 	virtual void monoprobuff(T*, int) = 0;

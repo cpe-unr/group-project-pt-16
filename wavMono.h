@@ -3,16 +3,17 @@
 
 #include <string>
 #include <vector>
+#include "wavHeader.h"
 
 class Mono {
-	std::vector<std::string> monoFiles;
+	std::vector<wav_header> monoObjs;
 public:
 	Mono() {}
-	Mono(std::string newFile) {
-		monoFiles.emplace_back(newFile);
+	Mono(wav_header newObj) {
+		monoObjs.emplace_back(newObj);
 	}
 
-	std::vector<std::string> getMonoFiles();
+	std::vector<wav_header> getMonoObjs();
 
 
 };

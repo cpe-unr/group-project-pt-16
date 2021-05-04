@@ -9,11 +9,10 @@ class MetadataManager {
 	metadata_header mh;
 	std::vector<Metadata> m_chunks;
 public:
-	MetadataManager() {}
+	MetadataManager() = default;
 	MetadataManager(std::ifstream& mFile) {
-		int i = 0;
-		int j = 0;
 		mFile.read((char*)&mh, sizeof(metadata_header));
+		int i = 0, j = 0;
 		while(i < mh.chunk_size - 4) {
 			m_chunks.emplace_back(mFile);
 			i += m_chunks[j++].getSize() + 8;

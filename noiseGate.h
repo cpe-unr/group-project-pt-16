@@ -11,9 +11,9 @@ public:
 	NoiseGate() {}
 	NoiseGate(int gateDelay, short s_align) : wavDelay(gateDelay), alignment(s_align) {};
 
-	void monoprobuff(T* buffer, int size) override {
+	void monoprobuff(T* buffer, int wavSize) override {
 		if(alignment == 1) {
-			for(int i=0; i<size; i++)
+			for(int i=wavDelay; i<wavSize; i++)
 			{
 				if( (buffer[i]>= 120) && (buffer[i]<=136) )
 				{
@@ -22,7 +22,7 @@ public:
 			}
 		}
 		else {
-			for(int i=0; i<buffsize; i++)
+			for(int i=wavDelay; i<wavSize; i++)
 			{
 				if( (buffer[i]>= -31465) && (buffer[i]<=31465) )
 				{
@@ -31,9 +31,9 @@ public:
 			}
 		}
 	}
-	void stereoprobuff(T* buffer1, T* buffer2, int size) override {
+	void stereoprobuff(T* buffer1, T* buffer2, int wavSize) override {
 		if(alignment == 2){
-			for(int i=0; i<size; i++)
+			for(int i=wavDelay; i<wavSize; i++)
 			{
 				if((buffer1[i]>= 120) && (buffer1[i] <136))
 				{
@@ -46,7 +46,7 @@ public:
 			}
 		}
 		else {
-			for(int i=0; i<size; i++)
+			for(int i=wavDelay; i<wavSize; i++)
 			{
 				if((buffer1[i]>= -31465) && (buffer1[i] <31465))
 				{

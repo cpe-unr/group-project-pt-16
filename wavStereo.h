@@ -3,16 +3,17 @@
 
 #include <string>
 #include <vector>
+#include "wavHeader.h"
 
 class Stereo {
-	std::vector<std::string> stereoFiles;
+	std::vector<wav_header> stereoObjs;
 public:
 	Stereo() {}
-	Stereo(std::string newFile) {
-		stereoFiles.emplace_back(newFile);
+	Stereo(wav_header newObj) {
+		stereoObjs.emplace_back(newObj);
 	}
 
-	std::vector<std::string> getStereoFiles();
+	std::vector<wav_header> getStereoObjs();
 
 
 };

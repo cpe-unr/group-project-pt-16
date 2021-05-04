@@ -6,6 +6,6 @@ struct metadata_header {
 	int chunk_size;
 	char info_header[4];
 
-}; metadata_header
+};
 
 #endif

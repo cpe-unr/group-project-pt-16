@@ -1,5 +1,5 @@
 #include "wavMono.h"
 
-std::vector<std::string> Mono::getMonoFiles() {
-	return monoFiles;
+std::vector<wav_header> Mono::getMonoObjs() {
+	return monoObjs;
 }
