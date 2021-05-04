@@ -30,46 +30,77 @@ void fn(){
 
 }
 
+void listArgs(int argc, char *argv[]);
+
 int main(int argc, char * argv[]) {
     cout << "Hello, World!" << endl;
-	/*This is temporary, will fix later. Most of this probably should go to a separate .h/.cpp file maybe
+	//Most of this probably should go to a separate .h/.cpp file maybe
 	int input;
 	Wav audio();
 	//Read files from argv[]
-	
+	//audio.readFile(argv);
+
 	cout << "Do you want to modify the metadata for any of these files? (1 - yes, 0 - no)" << endl;
 	cin >> input;
-	if (input==1){//Also displays a list of all file names
-		//Metadata editing
+	if (input==1){
+		while(input!=0){
+			cout << "Which file to edit? Enter 0 to quit." << endl;
+			listArgs(argc,argv);
+			cin >> input;
+			if (input==0){
+				break;
+			}
+			//Metadata editing of argv[input]
+		}
 	}
 	
 	cout << "Do you want to process a file? (1 - yes, 0 - no)" << endl;
 	cin >> input;
 	if (input==1){
-		//normalization, noise gating, and echo
-	
-		cout << "Enter file name to save: " << endl;
-		string newName;
-		cin >> newName;
-		if (newName==argv[1]){
-			cout << "Cannot save file with the same name!" << endl;
+		while(input!=0){
+			cout << "Which file to process? Enter 0 to quit." << endl;
+			listArgs(argc,argv);
+			cin >> input;
+			if (input==0){
+				break;
+			}
+			//normalization, noise gating, and echo
+			cout << "Enter file name to save: " << endl;
+			string newName, compName;
+			bool sameName=true;
+			while(sameName==true){
+				cin >> newName;
+				for (int i=1;i<argc;i++){
+					if (newName==argv[i]){
+						compName=argv[i];
+					}
+				}
+				if (newName==compName){
+					cout << "Cannot save file with the same name!" << endl;
+				}
+				else{
+					sameName=0;
+					cout << "Saved " << newName << endl;
+					//Save the file
+				}
+			}
 		}
 	}
 	
-	cout << "Do you want to make a CSV file?" << endl;
+	cout << "Do you want to make a CSV file? (1 - yes, 0 - no)" << endl;
 	cin >> input;
 	if (input==1){
 		//Generate CSV
-	}*/
+	}
 	
     return 0;
 }
 
-/*void listArgs(int arg, *argv[]){//don't know if this will be used
-	for (int i=1;i<arg;i++){
-		cout << argv[i] << endl;
+void listArgs(int argc, char *argv[]){
+	for (int i=1;i<argc;i++){
+		cout << i << " - " << argv[i] << endl;
 	}
-}*/
+}
 
 
 /*#include "files.h"
