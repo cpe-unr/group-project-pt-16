@@ -36,20 +36,24 @@ int main(int argc, char * argv[]) {
 	int input;
 	Wav audio();
 	//Read files from argv[]
-	cout << "Do you want to modify the metadata for any of these files?" << endl;
+	
+	cout << "Do you want to modify the metadata for any of these files? (1 - yes, 0 - no)" << endl;
 	cin >> input;
 	if (input==1){//Also displays a list of all file names
 		//Metadata editing
 	}
 	
-	cout << "Do you want to process a file?" << endl;
+	cout << "Do you want to process a file? (1 - yes, 0 - no)" << endl;
 	cin >> input;
-	//normalization, noise gating, and echo
-	cout << "Enter file name to save: " << endl;
-	string newName;
-	cin >> newName;
-	if (newName==argv[1]){
-		cout << "Cannot save file with the same name!" << endl;
+	if (input==1){
+		//normalization, noise gating, and echo
+	
+		cout << "Enter file name to save: " << endl;
+		string newName;
+		cin >> newName;
+		if (newName==argv[1]){
+			cout << "Cannot save file with the same name!" << endl;
+		}
 	}
 	
 	cout << "Do you want to make a CSV file?" << endl;
@@ -60,6 +64,12 @@ int main(int argc, char * argv[]) {
 	
     return 0;
 }
+
+/*void listArgs(int arg, *argv[]){//don't know if this will be used
+	for (int i=1;i<arg;i++){
+		cout << argv[i] << endl;
+	}
+}*/
 
 
 /*#include "files.h"
