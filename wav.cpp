@@ -64,6 +64,14 @@ int Wav::getBufferSize() const {
 	return wavHeader.data_bytes;
 }
 
+short Wav::getAlign() const {
+	return wavHeader.sample_alignment;
+}
+
+short Wav::getChannels() const {
+	return wavHeader.num_channels;
+}
+
 
 
 

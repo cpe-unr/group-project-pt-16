@@ -3,6 +3,11 @@
 #include "wav.h"
 #include "wavMono.h"
 #include "wavStereo.h"
+#include "noiseGate.h"
+#include "echo.h"
+#include "metadata.h"
+#include "metadataManager.h"
+#include "processor.h"
 
 using namespace std;
 
@@ -31,58 +36,78 @@ void fn(){
 }
 
 int main(int argc, char * argv[]) {
-    cout << "Hello, World!" << endl;
-	/*This is temporary, will fix later. Most of this probably should go to a separate .h/.cpp file maybe
-	int input;
-	Wav audio();
-	//Read files from argv[]
-	cout << "Do you want to modify the metadata for any of these files?" << endl;
-	cin >> input;
-	if (input==1){//Also displays a list of all file names
-		//Metadata editing
+    	if(argc != 2) {
+		cout << "Incorrect usage, Correct usage:" << endl;
+		cout <<  argv[0] << " filename" << endl;
 	}
+	else {
 	
-	cout << "Do you want to process a file?" << endl;
-	cin >> input;
-	//normalization, noise gating, and echo
-	cout << "Enter file name to save: " << endl;
-	string newName;
-	cin >> newName;
-	if (newName==argv[1]){
-		cout << "Cannot save file with the same name!" << endl;
-	}
+
+		int mInput;
+		int pInput;
+		int pNum;
+		int input3;
+		int cInput;
+		string file = argv[1];
+		Wav wav;
+		wav.readFile(file);
 	
-	cout << "Do you want to make a CSV file?" << endl;
-	cin >> input;
-	if (input==1){
+		do {
+			cout << "Do you want to modify the metadata for of this file?" << endl;
+			cout << " 1. Yes" << endl;
+			cout << " 2. No" << endl;
+			cin >> mInput;
+			if (mInput==1){//Also displays a list of all file names
+				break;
+			}
+			if(mInput !=1 && mInput !=2) {
+				cout << "Please enter a valid choice" << endl;
+			}
+		}
+		while(mInput !=2);
+	
+		
+		cout << "Would you like to process this file?" << endl;
+		cout << " 1. Yes" << endl;
+		cout << " 2. No" << endl;
+		cin >> pInput;
+
+		if(pInput ==1){
+			cout << "How many processes would you like to add:" << endl;
+			cin >> pNum;
+			for(int i = 0; i < pNum || i < 2; i++) {
+				cout << "1. Normalization, 2. NoiseGate, 3. Echo" << endl;
+				cout << "Choose process " << i+1 << endl;
+				cin >> input3;
+				if(input3 == 1) {
+					//Process Normalization
+				}
+				else if(input3 == 2) {
+					//Process Echo
+				}
+				else if(input3 == 3) {
+					//Process NoiseGate
+				}
+			}
+		}
+	 
+
+		cout << "Enter file name to save: " << endl;
+		string newName;
+		cin >> newName;
+		if (newName==argv[1]){
+			cout << "Cannot save file with the same name!" << endl;
+		}
+	
+		cout << "Do you want to make a CSV file?" << endl;
+		cin >> cInput;
+		if (cInput==1){
 		//Generate CSV
-	}*/
+		}
+	}
 	
     return 0;
 }
 
 
-/*#include "files.h"
-
-
-int main(int argc, char const *argv[]) {
-
-	bool check;
-	int choice;
-
-	Files F;
-
-	check=F.Argvcheck(argc,argv);
-
-	if(check){
-		
-		//ui stuff 
-			
-//what ever we make it as i made it for as an example while(choice>4);
-//check if file opens
-		F.Readfilenames(argv);
-		F.fileopen(ui.getfile());
-
-return 0;
-}*/
 

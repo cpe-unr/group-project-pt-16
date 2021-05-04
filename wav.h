@@ -18,14 +18,16 @@ private:
 	unsigned char* stereoBuffer = NULL;
 	int headerSize = sizeof(wav_header);
 public:
-	Wav(const std::string&);
-
+	Wav() {}
+	
 	void readFile(const std::string &filename);
 	void writeFile(const std::string &outFileName);
 
 	virtual ~Wav();
 
 	int getBufferSize() const;
+	short getAlign() const;
+	short getChannels() const;
 
 	template<typename T>
 	T* getBuffer() const {
