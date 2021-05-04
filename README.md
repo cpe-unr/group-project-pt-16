@@ -17,3 +17,6 @@ Finally there is the Processor class which was a templated interface for process
 
 Challenges:
 The main challennge we encountered was reading from the different types of wav files, our research and coding took up more time than anticipated and this caused us to be unable to code the normalization, and some other parts of our code as well.
+
+UML Diagram:
+![UML](https://user-images.githubusercontent.com/70337871/117081304-7d5a4e00-acf4-11eb-9479-91dfd94114fb.png)
