@@ -10,6 +10,7 @@ class MetadataManager {
 	std::vector<Metadata> m_chunks;
 public:
 	MetadataManager() = default;
+	//creates a vector of metadata chunks
 	MetadataManager(std::ifstream& mFile) {
 		mFile.read((char*)&mh, sizeof(metadata_header));
 		int i = 0, j = 0;

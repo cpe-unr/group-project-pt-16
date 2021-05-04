@@ -11,6 +11,7 @@ public:
 	NoiseGate() {}
 	NoiseGate(int gateDelay, short s_align) : wavDelay(gateDelay), alignment(s_align) {};
 
+	//makes noisegate for Mono wav files
 	void monoprobuff(T* buffer, int wavSize) override {
 		if(alignment == 1) {
 			for(int i=wavDelay; i<wavSize; i++)
@@ -31,6 +32,8 @@ public:
 			}
 		}
 	}
+
+	//makes noisegate for Stereo Wav files
 	void stereoprobuff(T* buffer1, T* buffer2, int wavSize) override {
 		if(alignment == 2){
 			for(int i=wavDelay; i<wavSize; i++)

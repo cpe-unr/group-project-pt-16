@@ -1,13 +1,16 @@
 #include "metadata.h"
 
+//sets new Metadata
 void Metadata::setMetadata(std::string newMetadata) {
 	metadata = newMetadata;
 }
 
+//Returns Metadata
 std::string Metadata::getMetadata() const {
 	return metadata;
 }
 
+//returns Metadata info
 std::string Metadata::getInfo() const {
 	std::string infoStr;
 	for(char c : mInfo) {
@@ -17,6 +20,7 @@ std::string Metadata::getInfo() const {
 	return infoStr;
 }
 
+//returns size of Metadata
 int Metadata::getSize() const {
 	return mSize;
 }

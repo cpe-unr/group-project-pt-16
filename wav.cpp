@@ -5,7 +5,7 @@
 
 using namespace std;
 
-
+//Reads the wav file and creates a buffer based on whether it is stereo or mono, then adds a wavHeader object to a vector in a class designed for mono/stereo
 void Wav::readFile(const std::string &filename) {
 	std::ifstream wavFile(filename, std::ios::binary | std::ios::in);
 	if(!wavFile.is_open()) {
@@ -42,6 +42,7 @@ void Wav::readFile(const std::string &filename) {
 
 }
 
+//writes new data into the wav file
 void Wav::writeFile(const std::string &outFileName) {    
 	std::ofstream outFile(outFileName, std::ios::out | std::ios::binary);    
 	outFile.write((char*)&wavHeader,sizeof(wav_header));    
@@ -55,19 +56,23 @@ void Wav::writeFile(const std::string &outFileName) {
 	outFile.close();
 }
 
+//deletes wav buffers
 Wav::~Wav() {
 	delete[] buffer;
 	delete[] stereoBuffer;
 }
 
+//gets buffer size for processing
 int Wav::getBufferSize() const {
 	return wavHeader.data_bytes;
 }
 
+//gets sample alignment to determine 8-bit or 16-bit
 short Wav::getAlign() const {
 	return wavHeader.sample_alignment;
 }
 
+//returns channels to determine Mono or Stereo
 short Wav::getChannels() const {
 	return wavHeader.num_channels;
 }

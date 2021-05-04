@@ -11,6 +11,7 @@ class Metadata {
 
 public:
 	Metadata() {}
+	//constructs a Metadata chunk
 	Metadata(std::ifstream& mFile) {
 		mFile.read(mInfo, sizeof(mInfo));
 		mFile.read((char*)&mSize, sizeof(mSize));

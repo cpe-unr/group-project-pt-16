@@ -58,7 +58,7 @@ int main(int argc, char * argv[]) {
 			cin >> mInput;
 			if (mInput==1){//Also displays a list of all file names
 				break;
-				//Modify Metadata
+				// need to Modify Metadata
 			}
 			if(mInput !=1 && mInput !=2) {
 				cout << "Please enter a valid choice" << endl;
@@ -80,7 +80,7 @@ int main(int argc, char * argv[]) {
 				cout << "Choose process " << i+1 << endl;
 				cin >> input3;
 				if(input3 == 1) {
-					//Process Normalization
+					// need to Process Normalization
 				}
 				else if(input3 == 2) {
 					/*Processor *p = new Echo(5000, wav.getAlign());
@@ -96,7 +96,7 @@ int main(int argc, char * argv[]) {
 					*/
 				}
 				else if(input3 == 3) {
-					//Process NoiseGate
+					// need to Process NoiseGate
 				}
 			}
 		}
@@ -118,7 +118,7 @@ int main(int argc, char * argv[]) {
 				else{
 					sameName=0;
 					cout << "Saved " << newName << endl;
-					//Save the file
+					//need to Save the file
 				}
 			}
 	
@@ -128,7 +128,7 @@ int main(int argc, char * argv[]) {
 		cout << " 2. No" << endl;
 		cin >> cInput;
 		if (cInput==1){
-			//Generate CSV
+			// need to Generate CSV
 
 		}
 	}

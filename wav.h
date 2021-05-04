@@ -29,6 +29,8 @@ public:
 	short getAlign() const;
 	short getChannels() const;
 
+
+	//These two functions return the buffer where all the wav data is stored and reinterperet cast them to the correct datatype
 	template<typename T>
 	T* getBuffer() const {
 		return reinterpret_cast<T*>(buffer);

@@ -1,6 +1,7 @@
 #ifndef WAVHEADER_H
 #define WAVHEADER_H
 
+
 typedef struct wav_header {
     // RIFF Header
     char riff_header[4]; // Contains "RIFF"
