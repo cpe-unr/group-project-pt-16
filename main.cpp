@@ -31,17 +31,15 @@ using namespace std;
  * \retval        ERR_SUCCESS    The function is successfully executed
  * \retval        ERR_FAILURE    An error occurred
  */
-void fn(){
 
-}
 
 int main(int argc, char * argv[]) {
     	if(argc != 2) {
 		cout << "Incorrect usage, Correct usage:" << endl;
 		cout <<  argv[0] << " filename" << endl;
+
 	}
 	else {
-	
 
 		int mInput;
 		int pInput;
@@ -53,12 +51,14 @@ int main(int argc, char * argv[]) {
 		wav.readFile(file);
 	
 		do {
+			cout << "-------------------------------------------------" << endl;
 			cout << "Do you want to modify the metadata for of this file?" << endl;
 			cout << " 1. Yes" << endl;
 			cout << " 2. No" << endl;
 			cin >> mInput;
 			if (mInput==1){//Also displays a list of all file names
 				break;
+				//Modify Metadata
 			}
 			if(mInput !=1 && mInput !=2) {
 				cout << "Please enter a valid choice" << endl;
@@ -66,7 +66,7 @@ int main(int argc, char * argv[]) {
 		}
 		while(mInput !=2);
 	
-		
+		cout << "-------------------------------------------------" << endl;
 		cout << "Would you like to process this file?" << endl;
 		cout << " 1. Yes" << endl;
 		cout << " 2. No" << endl;
@@ -83,7 +83,17 @@ int main(int argc, char * argv[]) {
 					//Process Normalization
 				}
 				else if(input3 == 2) {
-					//Process Echo
+					/*Processor *p = new Echo(5000, wav.getAlign());
+					if(wav.getChannels == 1) {
+						p->monoprobuff(wav.getBuffer(), wav.getBufferSize());
+					}
+					else {
+						p->stereoprobuff(wav.getBuffer(), wav.getStereoBuffer(), wav.getBufferSize());
+					}
+					wav.writeFile("echo.wav");
+					delete p;
+					//This method doesnt work, but im commenting to compile, would likely be the same for the other 2.
+					*/
 				}
 				else if(input3 == 3) {
 					//Process NoiseGate
@@ -91,18 +101,35 @@ int main(int argc, char * argv[]) {
 			}
 		}
 	 
-
+		cout << "-------------------------------------------------" << endl;
 		cout << "Enter file name to save: " << endl;
-		string newName;
-		cin >> newName;
-		if (newName==argv[1]){
-			cout << "Cannot save file with the same name!" << endl;
-		}
+			string newName, compName;
+			bool sameName=true;
+			while(sameName==true){
+				cin >> newName;
+				for (int i=1;i<argc;i++){
+					if (newName==argv[i]){
+						compName=argv[i];
+					}
+				}
+				if (newName==compName){
+					cout << "Cannot save file with the same name!" << endl;
+				}
+				else{
+					sameName=0;
+					cout << "Saved " << newName << endl;
+					//Save the file
+				}
+			}
 	
+		cout << "-------------------------------------------------" << endl;
 		cout << "Do you want to make a CSV file?" << endl;
+		cout << " 1. Yes" << endl;
+		cout << " 2. No" << endl;
 		cin >> cInput;
 		if (cInput==1){
-		//Generate CSV
+			//Generate CSV
+
 		}
 	}
 	
